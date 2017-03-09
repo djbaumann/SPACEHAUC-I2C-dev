@@ -37,6 +37,12 @@ int main(int argc, char* argv[]) {
   } else {
     cout << "Failure" << endl;
   }
+  cout << "Testing Luminosity Sensor..." << endl;
+  if (testLuminositySensor()) {
+    cout << "Success" << endl;
+  } else {
+    cout << "Failure" << endl;
+  }
   /*
   cout << "Testing Magnetometer..." << endl;
   if (testMagnetometer()) {
@@ -50,13 +56,6 @@ int main(int argc, char* argv[]) {
   } else {
     cout << "Failure" << endl;
   }
-  cout << "Testing Luminosity Sensor..." << endl;
-  if (testLuminositySensor()) {
-    cout << "Success" << endl;
-  } else {
-    cout << "Failure" << endl;
-  }
-  */
   return 0;
 }
 
@@ -96,7 +95,8 @@ int main(int argc, char* argv[]) {
 //   }
 //   return 0;
 // }
-
+*/
+}
 bool testTemperatureSensor() {
   /*
   uint8_t address = 0x1d;
