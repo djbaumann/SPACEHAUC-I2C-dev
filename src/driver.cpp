@@ -124,6 +124,7 @@ bool testLuminositySensor() {
   cout << "Initializing  " << light.getDeviceName() << " Luminosity Sensor..." << endl;
   if (light.init() == false) {
     cerr << "Error: Luminosity Sensor " << light.getDeviceName() << " failed to initialize." << endl;
+    cout << "Attempting read: " << light.read() << endl;
     return false;
   }
   cout << "Initialized Luminosity Sensor " << light.getDeviceName() << endl;

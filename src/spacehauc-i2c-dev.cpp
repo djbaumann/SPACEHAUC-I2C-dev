@@ -132,7 +132,7 @@ int I2C_Device::writeBytes(uint8_t reg, uint8_t *buffer, uint8_t count) {
   }
   struct i2c_rdwr_ioctl_data packets;
   struct i2c_msg messages[1];
-
+  cout << hexString(mAddress) << endl;
   messages[0].addr  = mAddress;
   messages[0].flags = 0;
   messages[0].len   = count + 1;
