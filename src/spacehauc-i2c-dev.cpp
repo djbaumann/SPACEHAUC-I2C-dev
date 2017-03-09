@@ -60,7 +60,7 @@ int I2C::I2C_ctl(i2c_rdwr_ioctl_data *packets) {
 bool I2C::initBus(int busNumber) {
   I2C bus;
   filepath += std::to_string(busNumber);
-  deviceFile = bus.openDevice();
+  deviceFile = open(filepath.c_str(), O_RDWR);
   if (deviceFile != 0) {
     return true;
   }

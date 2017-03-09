@@ -120,7 +120,7 @@ bool testTemperatureSensor() {
 }
 
 bool testLuminositySensor() {
-  TSL2561 light(0x32);
+  TSL2561 light(0x29);
   cout << "Initializing  " << light.getDeviceName() << " Luminosity Sensor..." << endl;
   if (light.init() == false) {
     cerr << "Error: Luminosity Sensor " << light.getDeviceName() << " failed to initialize." << endl;
