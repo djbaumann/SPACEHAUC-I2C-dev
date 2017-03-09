@@ -1,6 +1,49 @@
+src/spacehauc-i2c-dev.cpp:7:  Include the directory when naming .h files  [build/include] [4]
+src/spacehauc-i2c-dev.cpp:23:  Do not use namespace using-directives.  Use using-declarations instead.  [build/namespaces] [5]
+src/spacehauc-i2c-dev.cpp:33:  For a static/global string constant, use a C style string instead: "static char filepath[]".  [runtime/string] [4]
+src/spacehauc-i2c-dev.cpp:34:  Should have a space between // and comment  [whitespace/comments] [4]
+src/spacehauc-i2c-dev.cpp:158:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+src/spacehauc-i2c-dev.cpp:158:  At least two spaces is best between code and comments  [whitespace/comments] [2]
+src/spacehauc-i2c-dev.cpp:173:  You don't need a ; after a }  [readability/braces] [4]
+src/spacehauc-i2c-dev.cpp:172:  At least two spaces is best between code and comments  [whitespace/comments] [2]
+src/spacehauc-i2c-dev.cpp:174:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+src/spacehauc-i2c-dev.cpp:174:  At least two spaces is best between code and comments  [whitespace/comments] [2]
+src/spacehauc-i2c-dev.cpp:253:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+src/spacehauc-i2c-dev.cpp:281:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+src/spacehauc-i2c-dev.cpp:302:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+src/spacehauc-i2c-dev.cpp:317:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+src/spacehauc-i2c-dev.cpp:344:  Lines should very rarely be longer than 100 characters  [whitespace/line_length] [4]
+src/spacehauc-i2c-dev.cpp:456:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+src/spacehauc-i2c-dev.cpp:465:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
 Done processing src/spacehauc-i2c-dev.cpp
-Total errors found: 0
+Total errors found: 17
+src/driver.cpp:12:  Include the directory when naming .h files  [build/include] [4]
+src/driver.cpp:19:  Do not use namespace using-directives.  Use using-declarations instead.  [build/namespaces] [5]
+src/driver.cpp:24:  Should have a space between // and comment  [whitespace/comments] [4]
+src/driver.cpp:25:  Should have a space between // and comment  [whitespace/comments] [4]
+src/driver.cpp:26:  Should have a space between // and comment  [whitespace/comments] [4]
+src/driver.cpp:108:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+src/driver.cpp:110:  Lines should very rarely be longer than 100 characters  [whitespace/line_length] [4]
+src/driver.cpp:113:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+src/driver.cpp:116:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+src/driver.cpp:124:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+src/driver.cpp:126:  Lines should very rarely be longer than 100 characters  [whitespace/line_length] [4]
+src/driver.cpp:154:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+src/driver.cpp:163:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
 Done processing src/driver.cpp
-Total errors found: 0
+Total errors found: 13
+include/spacehauc-i2c-dev.h:35:  public: should be indented +1 space inside class Triplet  [whitespace/indent] [3]
+include/spacehauc-i2c-dev.h:59:  Should have a space between // and comment  [whitespace/comments] [4]
+include/spacehauc-i2c-dev.h:60:  Should have a space between // and comment  [whitespace/comments] [4]
+include/spacehauc-i2c-dev.h:91:  private: should be indented +1 space inside class MCP9808  [whitespace/indent] [3]
+include/spacehauc-i2c-dev.h:98:  public: should be indented +1 space inside class MCP9808  [whitespace/indent] [3]
+include/spacehauc-i2c-dev.h:117:  private: should be indented +1 space inside class TSL2561  [whitespace/indent] [3]
+include/spacehauc-i2c-dev.h:124:  public: should be indented +1 space inside class TSL2561  [whitespace/indent] [3]
+include/spacehauc-i2c-dev.h:125:  Single-parameter constructors should be marked explicit.  [runtime/explicit] [5]
+include/spacehauc-i2c-dev.h:142:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+include/spacehauc-i2c-dev.h:155:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+include/spacehauc-i2c-dev.h:169:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+include/spacehauc-i2c-dev.h:194:  Namespace should be terminated with "// namespace spacehauc_i2c"  [readability/namespace] [5]
+include/spacehauc-i2c-dev.h:194:  At least two spaces is best between code and comments  [whitespace/comments] [2]
 Done processing include/spacehauc-i2c-dev.h
-Total errors found: 0
+Total errors found: 13

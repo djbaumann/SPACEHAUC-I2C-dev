@@ -4,7 +4,7 @@
 
 // Copyright 2016 - 2017 UMass Lowell Command and Data Handling Team
 
-#include "spacehauc-i2c-dev.h"
+#include "../include/spacehauc-i2c-dev.h"
 #include <sys/ioctl.h>
 #include <linux/i2c.h>
 #include <linux/i2c-dev.h>
@@ -20,6 +20,7 @@
 using std::string;
 using std::cout;
 using std::endl;
+
 using namespace spacehauc_i2c;
 
 string spacehauc_i2c::hexString(uint8_t decimal) {
