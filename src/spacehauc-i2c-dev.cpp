@@ -216,13 +216,13 @@ bool TSL2561::init() {
   // Select control register(0x00 | 0x80)
   // Power ON mode(0x03)
   uint8_t data = 0x03;
-  if (writeBytes(controlRegister1 | 0x80, &data, 1) <= 0) {
+  if (writeBytes(0x00 | 0x80, &data, 1) <= 0) {
     return false;
   }
   // Select timing register(0x01 | 0x80)
   // Nominal integration time = 402ms(0x02)
   data = 0x02;
-  if (writeBytes(controlRegister2 | 0x80, &data, 1) <= 0) {
+  if (writeBytes(0x01 | 0x80, &data, 1) <= 0) {
     return false;
   }
   return true;
