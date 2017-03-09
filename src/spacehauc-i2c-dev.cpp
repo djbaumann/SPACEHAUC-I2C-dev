@@ -46,7 +46,7 @@ int I2C::openDevice() {
 
 int I2C::I2C_ctl(i2c_rdwr_ioctl_data *packets) {
   cout << deviceFile << endl;
-  return ioctl(deviceFile, I2C_RDWR, packets);
+  return ioctl(3, I2C_RDWR, packets);
 }
 
 
