@@ -2,7 +2,7 @@
  * @file
  */
 
-// Copyright 2016 UMass Lowell Command and Data Handling Team
+// Copyright 2016 - 2017 UMass Lowell Command and Data Handling Team
 
 #include "spacehauc-i2c-dev.h"
 #include <sys/ioctl.h>
@@ -14,17 +14,27 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 
 using std::string;
 using std::cout;
 using std::endl;
 using namespace spacehauc_i2c;
 
-int I2C::deviceFile = 0;
-string I2C::filepath = "/dev/i2c-";
+string spacehauc_i2c::hexString(uint8_t decimal) {
+  std::stringstream stream;
+  stream << "0x" <<  std::setfill ('0') << std::setw(sizeof(uint8_t)*2)
+  << std::hex << static_cast<unsigned int>(decimal);
+  return stream.str();
+}
+
+static int deviceFile;
+static string filepath = "/dev/i2c-";
+//string I2C::filepath = "/dev/i2c-";
 
 I2C::~I2C() {
-  if (I2C::deviceFile != 0) {
+  if (deviceFile != 0) {
     close(deviceFile);
   }
 }
@@ -34,6 +44,7 @@ int I2C::openDevice() {
 }
 
 int I2C::I2C_ctl(i2c_rdwr_ioctl_data *packets) {
+  cout << deviceFile << endl;
   return ioctl(deviceFile, I2C_RDWR, packets);
 }
 
@@ -47,8 +58,8 @@ int I2C::I2C_ctl(i2c_rdwr_ioctl_data *packets) {
  */
 bool I2C::initBus(int busNumber) {
   I2C bus;
-  I2C::filepath += std::to_string(busNumber);
-  I2C::deviceFile = bus.openDevice();
+  filepath += std::to_string(busNumber);
+  deviceFile = bus.openDevice();
   if (deviceFile != 0) {
     return true;
   }
@@ -132,13 +143,6 @@ int I2C_Device::writeBytes(uint8_t reg, uint8_t *buffer, uint8_t count) {
   return I2C_ctl(&packets);
 }
 
-string I2C_Device::hexString(uint8_t decimal) {
-  string ret = "";
-  while((decimal /= 16) > 0) {
-    ret = std::to_string(decimal %= 16) + ret;
-  }
-  return ret;
-}
 
 // Adafruit MCP9808 I2C Temperature Sensor
 // More info https://www.adafruit.com/product/1782
@@ -192,7 +196,7 @@ double MCP9808::read() {
  */
 TSL2561::TSL2561(uint8_t address) {
   mAddress = address;
-  deviceName = "TSL2561_" + std::to_string(address);
+  deviceName = "TSL2561_" + hexString(address);
 }
 
 /*!

@@ -2,7 +2,7 @@
  * @file
  */
 
-// Copyright 2016 UMass Lowell Command and Data Handling Team
+// Copyright 2016 - 2017 UMass Lowell Command and Data Handling Team
 
 #ifndef INCLUDE_SPACEHAUC_I2C_DEV_H_
 #define INCLUDE_SPACEHAUC_I2C_DEV_H_
@@ -17,7 +17,10 @@
 using std::vector;
 using std::string;
 
+
 namespace spacehauc_i2c {
+
+string hexString(uint8_t decimal);
 
 /*!
  * This is a structure of template variables x y, and z that can be easily passed
@@ -53,12 +56,13 @@ class I2C {
   virtual int openDevice();
   virtual int I2C_ctl(i2c_rdwr_ioctl_data *packets);
   /*! This is an integer that represents the opened I2C file (device) */
-  static int deviceFile;
-  static string filepath;
+  //static int deviceFile;
+  //static string filepath;
  public:
   virtual ~I2C();
   static bool initBus(int busNumber);
 };
+
 
 /*!
  * This is a class for any i2c device to inherit from. All i2c devices need
@@ -72,7 +76,6 @@ class I2C_Device : public I2C {
   int readBytes(uint8_t reg, uint8_t *buffer, uint8_t count);
   int writeBytes(uint8_t reg, uint8_t *buffer, uint8_t count);
   string deviceName;
-  string hexString(uint8_t decimal);
  public:
   I2C_Device();
   virtual ~I2C_Device();
@@ -127,7 +130,7 @@ public:
     return mLuminosity;
   }
 };
-//
+
 // /*!
 //  * This is a class for a temperature sensor, specifically the 9DoF board's
 //  * sensor.
@@ -188,6 +191,16 @@ public:
 // };
 
 
-} // spacehauc-i2c
+} // spacehauc_i2c
+
+namespace spacehauc_i2c_test {
+
+}
+
+
+
+
+
+
 
 #endif  // INCLUDE_SPACEHAUC_I2C_DEV_H_

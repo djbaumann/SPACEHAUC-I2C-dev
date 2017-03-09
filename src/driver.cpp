@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdlib>
 #include "spacehauc-i2c-dev.h"
 
 using std::vector;
@@ -26,8 +27,7 @@ bool testLuminositySensor();
 
 int main(int argc, char* argv[]) {
   cout << "SPACEHAUC I2C Library Driver" << endl;
-  cout << "Initializing Bus" << endl;
-
+  cout << "Initializing Bus..." << endl;
   if (I2C::initBus(1) == false) {
     cerr << "Error: I2C bus failed to open." << endl;
   }
@@ -107,13 +107,13 @@ bool testTemperatureSensor() {
   MCP9808 tempSensor(0x18);
   cout << "Initializing " << tempSensor.getDeviceName() << " Temperature Sensor..." << endl;
   if (tempSensor.init() == false) {
-    cerr << "Error: Temperature Sensor failed to initalize." << endl;
+    cerr << "Error: Temperature Sensor " << tempSensor.getDeviceName() << " failed to initalize." << endl;
     return false;
   }
-  cout << "Initialized Temperature Sensor" << endl;
+  cout << "Initialized Temperature Sensor " << tempSensor.getDeviceName() << endl;
   cout << "Reading Temperature data..." << endl;
   for (int i = 0; i < 5; ++i) {
-    cout << "Temperature = " << tempSensor.read() << endl;
+    cout << tempSensor.getDeviceName() << ": Temperature = " << tempSensor.read() << endl;
     usleep(500000);
   }
   return true;
@@ -121,14 +121,15 @@ bool testTemperatureSensor() {
 
 bool testLuminositySensor() {
   TSL2561 light(0x32);
+  cout << "Initializing  " << light.getDeviceName() << " Luminosity Sensor..." << endl;
   if (light.init() == false) {
-    cerr << "Error: Luminosity Sensor failed to initialize." << endl;
+    cerr << "Error: Luminosity Sensor " << light.getDeviceName() << " failed to initialize." << endl;
     return false;
   }
-  cout << "Initialized Luminosity Sensor" << endl;
+  cout << "Initialized Luminosity Sensor " << light.getDeviceName() << endl;
   cout << "Reading light intensity data..." << endl;
   for (int i = 0; i < 5; ++i) {
-    cout << "Luminosity: " << light.read() << endl;
+    cout << light.getDeviceName() << ": Luminosity: " << light.read() << endl;
     sleep(1);
   }
   return true;
